@@ -16,7 +16,7 @@ SendGrid API.
 You can install the package via Composer:
 
 ```bash
-composer require cyberwizard/sendgrid-mailer
+composer require cyberwizard/sendgrid-mailer:dev-main
 ```
 
 ## Usage

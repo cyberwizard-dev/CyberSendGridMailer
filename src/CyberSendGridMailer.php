@@ -2,11 +2,11 @@
 
 namespace Cyberwizard\SendGridMailer;
 
+use Couchbase\View;
 use Exception;
 use http\Env;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\View;
 use SendGrid\Mail\TypeException;
 
 class CyberSendGridMailer

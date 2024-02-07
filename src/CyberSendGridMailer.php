@@ -16,8 +16,9 @@ class CyberSendGridMailer
      *
      * @param string $subject The subject of the email.
      * @param string $to The recipient email address.
-     * @param string $from The sender email address.
-     * @param string $templatePath The path to the email template.
+     * @param string $fromEmail The sender's email address.
+     * @param string $fromName The sender's name.
+     * @param string $templatePath The path to the email template in your views dir. e.g 'templates.share-document-mail'
      * @param array $data The data to pass to the email template. For example:
      * [
      *     'name' => 'John Doe',
@@ -28,7 +29,7 @@ class CyberSendGridMailer
      * @throws TypeException If there is an issue with the email content type.
      * @throws Exception If there is an unexpected error during email sending.
      */
-    public static function sendEmail(string $subject, string $to, string $fromEmail, $fromName = "", string $templatePath, array $data = []): bool
+    public static function sendEmail(string $subject, string $to, string $fromEmail, string $fromName = "", string $templatePath, array $data = []): bool
     {
         $email = new Mail();
         $email->setFrom($fromEmail, $fromName ?? env('APP_NAME'));

@@ -3,7 +3,6 @@
   "description": "A Laravel package for sending emails using SendGrid API KEY",
   "type": "library",
   "require": {
-    "php": "^7.3",
     "illuminate/support": "^8.0",
     "sendgrid/sendgrid": "~7"
   },

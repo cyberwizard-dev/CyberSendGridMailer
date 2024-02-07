@@ -14,10 +14,10 @@ class CyberSendGridMailer
      * @throws TypeException
      * @throws Exception
      */
-    public static function sendEmail($subject, $to, $templatePath, $data = []): bool
+    public static function sendEmail($subject, $to, $from, $templatePath, $data = []): bool
     {
         $email = new Mail();
-        $email->setFrom('hello@current.ng', env('APP_NAME'));
+        $email->setFrom($from, env('APP_NAME'));
         $email->setSubject($subject);
         $email->addTo($to);
 

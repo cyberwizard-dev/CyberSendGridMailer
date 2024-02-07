@@ -3,6 +3,7 @@
 namespace Cyberwizard\SendGridMailer;
 
 use Exception;
+use http\Env;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
@@ -11,13 +12,26 @@ use SendGrid\Mail\TypeException;
 class CyberSendGridMailer
 {
     /**
-     * @throws TypeException
-     * @throws Exception
+     * Sends an email using SendGrid.
+     *
+     * @param string $subject The subject of the email.
+     * @param string $to The recipient email address.
+     * @param string $from The sender email address.
+     * @param string $templatePath The path to the email template.
+     * @param array $data The data to pass to the email template. For example:
+     * [
+     *     'name' => 'John Doe',
+     *     'order_id' => '123456',
+     *     // Add more key-value pairs as needed
+     * ]
+     * @return bool True if the email was sent successfully, false otherwise.
+     * @throws TypeException If there is an issue with the email content type.
+     * @throws Exception If there is an unexpected error during email sending.
      */
-    public static function sendEmail($subject, $to, $from, $templatePath, $data = []): bool
+    public static function sendEmail(string $subject, string $to, string $fromEmail, $fromName = "", string $templatePath, array $data = []): bool
     {
         $email = new Mail();
-        $email->setFrom($from, env('APP_NAME'));
+        $email->setFrom($fromEmail, $fromName ?? env('APP_NAME'));
         $email->setSubject($subject);
         $email->addTo($to);
 

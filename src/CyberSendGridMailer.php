@@ -1,10 +1,7 @@
 <?php
 
 namespace Cyberwizard\SendGridMailer;
-
-use Couchbase\View;
 use Exception;
-use http\Env;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use SendGrid\Mail\TypeException;
@@ -12,7 +9,7 @@ use SendGrid\Mail\TypeException;
 class CyberSendGridMailer
 {
     /**
-     * Sends an email using SendGrid.
+     * Sends an email using SendGrid API KEY and Laravel Blade Template.
      *
      * @param string $subject The subject of the email.
      * @param string $to The recipient email address.

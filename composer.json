@@ -1,6 +1,6 @@
 {
   "name": "cyberwizard/sendgrid-mailer",
-  "description": "A Laravel package for sending emails using SendGrid API KEY",
+  "description": "A Laravel package for sending 'templated based' emails using SendGrid API KEY",
   "type": "library",
   "require": {
     "illuminate/support": "^8.0",

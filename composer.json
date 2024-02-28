@@ -9,12 +9,5 @@
     "psr-4": {
       "Cyberwizard\\SendGridMailer\\": "src/"
     }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Cyberwizard\\SendGridMailer\\ServiceProvider"
-      ]
-    }
   }
 }

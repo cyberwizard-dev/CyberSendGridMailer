@@ -36,8 +36,8 @@ class CyberSendGridMailer
         if (empty($data)) {
             $email->addContent('text/plain', $content);
         } else {
-            $content = View::make($templatePath, $data)->render();
-            $email->addContent('text/html', $content);
+            $mail = View::make($templatePath, $data)->render();
+            $email->addContent('text/html', $mail);
         }
 
         $sendgrid = new \SendGrid(env('SENDGRID_API_KEY'));

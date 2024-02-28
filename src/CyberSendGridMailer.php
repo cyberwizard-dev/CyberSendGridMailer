@@ -26,7 +26,7 @@ class CyberSendGridMailer
      * @throws Exception If there is an unexpected error during email sending.
      */
 
-    public static function sendEmail(string $subject, string $to, $fromEmail, string $templatePath, $content ="", array $data = [] ): void
+    public static function sendEmail(string $subject, string $to, $fromEmail, string $templatePath, $content ="", array $data = [] )
     {
         $email = new Mail();
         $email->setFrom($fromEmail, env('APP_NAME'));
@@ -44,6 +44,7 @@ class CyberSendGridMailer
 
         try {
             $response = $sendgrid->send($email);
+            return $response;
             Log::info("SendGrid Email Sent - Status Code: {$response->statusCode()}, Headers: " . json_encode($response->headers()) . ", Body: {$response->body()}");
         } catch (Exception $e) {
             Log::error('Exception caught: ' . $e->getMessage());
